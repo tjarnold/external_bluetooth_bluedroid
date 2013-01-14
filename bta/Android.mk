@@ -11,7 +11,9 @@ endif
 LOCAL_CFLAGS += -DBUILDCFG $(bdroid_CFLAGS)
 
 #fix bluetooth on tuna.... we no need strict here
+ifeq ($(BOARD_HAVE_BLUETOOTH_NO_STRICT),true)
 LOCAL_CFLAGS += -fno-strict-aliasing
+endif
 
 LOCAL_PRELINK_MODULE:=false
 LOCAL_SRC_FILES:= \
